@@ -9,7 +9,7 @@
                     <div class="card card-plain table-plain-bg">
                         <div class="card-header ">
                             {{-- <h4 class="card-title">Ctdentes</h4> --}}
-                            <form action="/teste" >{{--METODO DO CONTROLLER--}}
+                            <form action="/cliente">{{-- METODO DO CONTROLLER --}}
                                 <button class="btn btn-primary btn-round" type="submit">Adicionar</button>
                             </form>
                         </div>
