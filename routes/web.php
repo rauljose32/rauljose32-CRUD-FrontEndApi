@@ -2,27 +2,40 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\Http;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\ClienteController;
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('dashboard');
+
+// CLIENTES
+// Route::get('/', function () {
+//     $api = Http::get('http://localhost:8000/api/clientes');
+//     $apiArray = $api->json();
+//     //dd($apiArray['data']);
+//     return view('cliente.cliente', ['apiArray' => $apiArray]);
+// });
+
+// Route::get('todos', [App\Http\Controllers\ClienteController::class, 'todos'])->name('todos');
+
+Route::get('clientes',[App\Http\Controllers\ClienteController::class,'consumir'])->name('consumir'); //EXEMPLO DE API PARA CONSUMIR
+Route::get('teste',[App\Http\Controllers\ClienteController::class,'teste'])->name('teste'); //EXEMPLO DE API PARA CONSUMIR
+
+
+
+
+
+
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);

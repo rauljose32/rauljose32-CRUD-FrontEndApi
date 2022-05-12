@@ -1,5 +1,5 @@
-@extends('layouts.app', ['activePage' => 'table', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim &
-UPDIVISION', 'navName' => 'Table List', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'table', 'title' => 'Clientes',
+'navName' => 'Clientes', 'activeButton' => 'laravel'])
 
 @section('content')
     <div class="content">
@@ -8,17 +8,17 @@ UPDIVISION', 'navName' => 'Table List', 'activeButton' => 'laravel'])
                 <div class="col-md-12">
                     <div class="card card-plain table-plain-bg">
                         <div class="card-header ">
-                            <h4 class="card-title">Clientes</h4>
+                            {{-- <h4 class="card-title">Clientes</h4> --}}
                             <button class="btn btn-primary btn-round">Adicionar</button>
                         </div>
                         <div class="card-body table-full-width table-responsive">
                             <table class="table table-hover">
                                 <thead>
                                     <th>ID</th>
-                                    <th>Name</th>
+                                    <th>Nome</th>
                                     <th>CPF</th>
+                                    <th>Telefone</th>
                                     <th>Email</th>
-                                    <th>Nacionalidade</th>
                                     <th>Profissão</th>
                                     <th>Ações</th>
                                 </thead>
@@ -27,17 +27,17 @@ UPDIVISION', 'navName' => 'Table List', 'activeButton' => 'laravel'])
                                     <tr>
                                         <td>1</td>
                                         <td>Dakota Rice</td>
-                                        <td>$36,738</td>
-                                        <td>Niger</td>
-                                        <td>Oud-Turnhout</td>
+                                        <td>cpf</td>
+                                        <td>tel</td>
+                                        <td>email</td>
                                         <td>Developer</td>
                                         <td>
                                             <div class="col-md-1 dropdown">
                                                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                                                     <i class="nc-icon nc-preferences-circle-rotate"></i></a>
                                                 <ul class="dropdown-menu">
-                                                    <button class="dropdown-item" type="button">Update</button>
-                                                    <button class="dropdown-item" type="button">Delete</button>
+                                                    <button class="dropdown-item" type="button">Atualizar</button>
+                                                    <button class="dropdown-item" type="button">Excluir</button>
                                                 </ul>
                                             </div>
                                         </td>
