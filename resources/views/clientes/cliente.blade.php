@@ -27,24 +27,33 @@
                                 <tbody>
 
                                     @foreach ($apiArray['data'] as $api)
-                                        <tr>
-                                            <td>{{ $api['id'] }}</td>
-                                            <td>{{ $api['nome'] }}</td>
-                                            <td>{{ $api['cpf'] }}</td>
-                                            <td>{{ $api['telefone'] }}</td>
-                                            <td>{{ $api['email'] }}</td>
-                                            <td>{{ $api['profissao'] }}</td>
-                                            <td>
-                                                <div class="col-md-1 dropdown">
-                                                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                                        <i class="nc-icon nc-preferences-circle-rotate"></i></a>
-                                                    <ul class="dropdown-menu">
-                                                        <button class="dropdown-item" type="button">Atualizar</button>
-                                                        <button class="dropdown-item" type="button">Excluir</button>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <a href="#">
+                                            <tr>
+                                                <td>{{ $api['id'] }}</td>
+                                                <td>{{ $api['nome'] }}</td>
+                                                <td>{{ $api['cpf'] }}</td>
+                                                <td>{{ $api['telefone'] }}</td>
+                                                <td>{{ $api['email'] }}</td>
+                                                <td>{{ $api['profissao'] }}</td>
+                                                <td>
+                                                    <div class="col-md-1 dropdown">
+                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="nc-icon nc-preferences-circle-rotate"></i></a>
+                                                        <ul class="dropdown-menu">
+                                                            <button class="dropdown-item" type="button">Atualizar</button>
+
+                                                            <form action="/cliente/{{ $api['id'] }}" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="dropdown-item" type="input">Excluir</button>
+
+                                                            </form>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </a>
                                     @endforeach
                                 </tbody>
                             </table>

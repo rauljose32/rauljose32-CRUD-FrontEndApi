@@ -30,7 +30,11 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('dashboar
 Route::get('clientes', [App\Http\Controllers\ClienteController::class, 'consumir'])->name('consumir'); //EXEMPLO DE API PARA CONSUMIR
 Route::get('teste', [App\Http\Controllers\ClienteController::class, 'teste'])->name('teste'); //EXEMPLO DE API PARA CONSUMIR
 Route::get('cliente', [App\Http\Controllers\ClienteController::class, 'create'])->name('create');
+
 Route::post('cliente', [App\Http\Controllers\ClienteController::class, 'store'])->name('store');
+
+Route::delete('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('destroy');
+
 
 
 

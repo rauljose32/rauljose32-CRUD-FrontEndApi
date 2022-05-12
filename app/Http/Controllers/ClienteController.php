@@ -20,7 +20,7 @@ class ClienteController extends Controller
     { //RETORNA TODOS OS CLIENTES
         $api = Http::get('http://localhost:8000/api/clientes');
         $apiArray = $api->json();
-        return $apiArray/*view('clientes.cliente', ['apiArray' => $apiArray])*/;
+        return view('clientes.cliente', ['apiArray' => $apiArray]);
     }
 
     public function teste()
@@ -43,7 +43,7 @@ class ClienteController extends Controller
 
     public function store(Request $request)
     {
-        $objeto = [
+        Http::post('http://127.0.0.1:8000/api/clientes', [
             "nome" => $request->nome,
             "cpf" => $request->cpf,
             "telefone" => $request->telefone,
@@ -55,16 +55,16 @@ class ClienteController extends Controller
             "complemento" => $request->complemento,
             "cidade" => $request->cidade,
             "estado" => $request->estado
-        ];
-        $json = json_encode($objeto);
+        ]);
 
-        //dd($json);
-        /*
-        $json = $request->json();
-        dd($json);
-        */
+        return redirect("/clientes");
+    }
 
-        $api = Http::post('http://127.0.0.1:8000/api/clientes');
-        return $json;
+    public function destroy($id)
+    {
+        Http::delete('http://127.0.0.1:8000/api/clientes/' . $id);
+        $api = Http::get('http://localhost:8000/api/clientes');
+        $apiArray = $api->json();
+        return view('clientes.cliente', ['apiArray' => $apiArray]);
     }
 }
