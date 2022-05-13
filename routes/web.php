@@ -26,20 +26,24 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('dashboar
 // });
 
 // Route::get('todos', [App\Http\Controllers\ClienteController::class, 'todos'])->name('todos');
-
-Route::get('clientes', [App\Http\Controllers\ClienteController::class, 'consumir'])->name('consumir'); //EXEMPLO DE API PARA CONSUMIR
 Route::get('teste', [App\Http\Controllers\ClienteController::class, 'teste'])->name('teste'); //EXEMPLO DE API PARA CONSUMIR
-Route::get('cliente', [App\Http\Controllers\ClienteController::class, 'create'])->name('create');
 
-Route::post('cliente', [App\Http\Controllers\ClienteController::class, 'store'])->name('store');
+//Actions Cliente->
+Route::get('clientes', [App\Http\Controllers\ClienteController::class, 'consumir'])->name('consumir'); //EXEMPLO DE API PARA CONSUMIR
+Route::get('cliente', [App\Http\Controllers\ClienteController::class, 'create'])->name('create'); //Redirect para Page de Create
+Route::post('cliente', [App\Http\Controllers\ClienteController::class, 'store'])->name('store'); //Create
+Route::delete('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('destroy'); //Delete
+Route::put('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update'); //Update
+//<-Actions Cliente
 
-Route::delete('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('destroy');
-
-Route::put('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update');
-
-
-
-
+//Actions Produto->
+Route::get('produtos', [App\Http\Controllers\ProdutoController::class, 'consumir'])->name('consumir');  //EXEMPLO DE API PARA CONSUMIR
+Route::get('produto', [App\Http\Controllers\ProdutoController::class, 'create'])->name('create'); //Redirect para Page de Create
+Route::post('produto', [App\Http\Controllers\ProdutoController::class, 'store'])->name('store'); //Create
+Route::delete('produto/{id}', [App\Http\Controllers\ProdutoController::class, 'destroy'])->name('destroy'); //Delete
+Route::get('produto/{id}', [App\Http\Controllers\ProdutoController::class, 'edit'])->name('edit'); //
+Route::put('produto/{id}', [App\Http\Controllers\ProdutoController::class, 'update'])->name('update'); //Update
+//<-Actions Produto
 
 
 

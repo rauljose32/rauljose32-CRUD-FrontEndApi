@@ -63,16 +63,14 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         Http::delete('http://127.0.0.1:8000/api/clientes/' . $id);
-        // $api = Http::get('http://localhost:8000/api/clientes');
-        // $apiArray = $api->json();
-        //return view('clientes.cliente', ['apiArray' => $apiArray]);
         return redirect("/clientes");
     }
 
-    public function update($id){
+    public function update($id)
+    {
         Http::put('http://127.0.0.1:8000/api/clientes/' . $id);
         //$apiEnd = Http::put('http://localhost:8000/api/clientes/'.$id.' /endereco/'.$id);
-        $api = Http::get('http://localhost:8000/api/clientes');//cliente
+        $api = Http::get('http://localhost:8000/api/clientes'); //cliente
         $apiArray = $api->json();
         return view('clientes.edit', ['apiArray' => $apiArray, 'id' => $id]);
     }

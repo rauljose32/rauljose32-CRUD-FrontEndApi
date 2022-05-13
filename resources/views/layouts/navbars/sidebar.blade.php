@@ -48,19 +48,19 @@ Tip 2: you can also add an image using data-image tag
             </li> --}}
 
             <li class="nav-item @if ($activePage == 'clientes') active @endif">
-                <a class="nav-link" href="{{ route('page.index', 'clientes') }}">{{--REDIRECIONA PARA A ROTA CLIENTES--}}
+                <a class="nav-link" href="{{ route('page.index', 'clientes') }}">{{-- REDIRECIONA PARA A ROTA CLIENTES --}}
                     <i class="nc-icon nc-circle-09"></i>
                     <p>{{ __('Clientes') }}</p>
                 </a>
             </li>
             <li class="nav-item @if ($activePage == 'teste') active @endif">
-                <a class="nav-link" href="{{ route('page.index', 'teste') }}">{{--REDIRECIONA PARA A ROTA CLIENTES--}}
+                <a class="nav-link" href="{{ route('page.index', 'teste') }}">{{-- REDIRECIONA PARA A ROTA CLIENTES --}}
                     <i class="nc-icon nc-circle-09"></i>
                     <p>{{ __('Cliente') }}</p>
                 </a>
             </li>
             <li class="nav-item @if ($activePage == 'produtos') active @endif">
-                <a class="nav-link" href="{{ route('page.index', 'rotaProdutos') }}">
+                <a class="nav-link" href="{{ route('page.index', 'produtos') }}">
                     <i class="nc-icon nc-bell-55"></i>
                     <p>{{ __('Produtos') }}</p>
                 </a>
