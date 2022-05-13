@@ -7,6 +7,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3>Criação do Cliente</h3>
+                    @foreach ($apiArray['data'] as $api)
+                    @if ($api['id'] == $id) {{--sim {{$api['id']}} {{$id}}--}}
                     <form action="/cliente" method="POST">
 
                         @csrf
@@ -14,38 +16,40 @@
                         <div class="form-group">
                             <label>Nome do Cliente</label>
                             <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome do Cliente"
-                                required>
+                                value="{{$api['nome']}}" required>
                         </div>
 
                         <div class="form-group">
                             <label>CPF</label>
-                            <input id="cpf" name="cpf" type="text" class="form-control" placeholder="CPF" required>
+                            <input id="cpf" name="cpf" type="text" class="form-control" placeholder="CPF"
+                            value="{{$api['cpf']}}" required>
                         </div>
 
                         <div class="form-group">
                             <label>Telefone</label>
                             <input id="telefone" name="telefone" type="text" class="form-control" placeholder="Telefone"
-                                required>
+                            value="{{$api['telefone']}}" required>
                         </div>
 
                         <div class="form-group">
                             <label>E-mail</label>
                             <input id="email" name="email" type="email" class="form-control" placeholder="email@email.com"
-                                required>
+                            value="{{$api['email']}}" required>
                         </div>
 
 
                         <div class="form-group">
                             <label>Profissão</label>
                             <input id="profissao" name="profissao" type="text" class="form-control"
-                                placeholder="Profissão" required>
+                            placeholder="Profissão" value="{{$api['profissao']}}" required>
                         </div>
 
-                        <h4>Endereço do Cliente</h4>
+                        {{-- <h4>Endereço do Cliente</h4>
 
                         <div class="form-group">
                             <label>CEP</label>
-                            <input id="cep" name="cep" type="text" class="form-control" placeholder="Cep" required>
+                            <input id="cep" name="cep" type="text" class="form-control" placeholder="Cep"
+                            required>
                         </div>
 
                         <div class="form-group">
@@ -76,12 +80,15 @@
                             <label>Estado</label>
                             <input id="estado" name="estado" type="text" class="form-control" placeholder="Estado"
                                 required>
-                        </div>
+                        </div>--}}
                         <div class="text-center">
                             <button type="submit" value="" class="btn btn-primary mt-4">{{ __('Salvar') }}</button>
                         </div>
                         {{-- <button class="btn btn-primary btn-round" type="submit">Adicionar</button> --}}
                     </form>
+                    @else
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>

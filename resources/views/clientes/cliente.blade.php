@@ -40,7 +40,11 @@
                                                         <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                                                             <i class="nc-icon nc-preferences-circle-rotate"></i></a>
                                                         <ul class="dropdown-menu">
-                                                            <button class="dropdown-item" type="button">Atualizar</button>
+                                                            <form action="/cliente/{{$api['id']}}" method="POST">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <button class="dropdown-item" type="input">Atualizar</button>
+                                                            </form>
 
                                                             <form action="/cliente/{{ $api['id'] }}" method="POST">
                                                                 @csrf
@@ -48,7 +52,6 @@
                                                                 <button class="dropdown-item" type="input">Excluir</button>
 
                                                             </form>
-
                                                         </ul>
                                                     </div>
                                                 </td>

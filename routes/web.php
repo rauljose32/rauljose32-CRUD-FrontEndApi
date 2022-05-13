@@ -35,6 +35,7 @@ Route::post('cliente', [App\Http\Controllers\ClienteController::class, 'store'])
 
 Route::delete('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('destroy');
 
+Route::put('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update');
 
 
 
