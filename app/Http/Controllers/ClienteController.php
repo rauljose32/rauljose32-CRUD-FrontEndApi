@@ -66,12 +66,28 @@ class ClienteController extends Controller
         return redirect("/clientes");
     }
 
-    public function update($id)
+    public function edit($id)
     {
-        Http::put('http://127.0.0.1:8000/api/clientes/' . $id);
-        //$apiEnd = Http::put('http://localhost:8000/api/clientes/'.$id.' /endereco/'.$id);
-        $api = Http::get('http://localhost:8000/api/clientes'); //cliente
+        $api = Http::get('http://127.0.0.1:8000/api/clientes');
         $apiArray = $api->json();
         return view('clientes.edit', ['apiArray' => $apiArray, 'id' => $id]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        Http::put('http://127.0.0.1:8000/api/clientes/' . $id,[
+            'nome' => $request->nome,
+            'cpf' => $request->cpf,
+            'telefone' => $request->telefone,
+            'email' => $request->email,
+            'profissao' => $request->profissao,
+            'cep' => $request->cep,
+            "logradouro" => $request->logradouro,
+            "numero" => $request->numero,
+            "complemento" => $request->complemento,
+            "cidade" => $request->cidade,
+            "estado" => $request->estado
+        ]);
+        return redirect('/clientes');
     }
 }

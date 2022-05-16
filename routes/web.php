@@ -33,7 +33,8 @@ Route::get('clientes', [App\Http\Controllers\ClienteController::class, 'consumir
 Route::get('cliente', [App\Http\Controllers\ClienteController::class, 'create'])->name('create'); //Redirect para Page de Create
 Route::post('cliente', [App\Http\Controllers\ClienteController::class, 'store'])->name('store'); //Create
 Route::delete('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('destroy'); //Delete
-Route::put('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update'); //Update
+Route::post('edit/{id}', [App\Http\Controllers\ClienteController::class, 'edit'])->name('edit'); //Edit que leva ao Update
+Route::put('update/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update'); //Update
 //<-Actions Cliente
 
 //Actions Produto->
