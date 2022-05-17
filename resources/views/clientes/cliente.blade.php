@@ -21,26 +21,29 @@
                                     <th>CPF</th>
                                     <th>Telefone</th>
                                     <th>Email</th>
-                                    <th>Profissão</th>
+                                    <th>Cidade</th>
+                                    <th>Estado</th>
                                     <th>Ações</th>
                                 </thead>
                                 <tbody>
 
                                     @foreach ($apiArray['data'] as $api)
-                                        <a href="#">
                                             <tr>
                                                 <td>{{ $api['id'] }}</td>
                                                 <td>{{ $api['nome'] }}</td>
                                                 <td>{{ $api['cpf'] }}</td>
                                                 <td>{{ $api['telefone'] }}</td>
                                                 <td>{{ $api['email'] }}</td>
-                                                <td>{{ $api['profissao'] }}</td>
+                                                <td>{{ $api['endereco']['cidade'] }}</td>
+                                                <td>{{ $api['endereco']['estado'] }}</td>
                                                 <td>
                                                     <div class="col-md-1 dropdown">
                                                         <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                                                             <i class="nc-icon nc-preferences-circle-rotate"></i></a>
                                                         <ul class="dropdown-menu">
-                                                            {{-- <form action="/cliente/{{$api['id']}}" method="POST"> --}}
+                                                            <form action="/cliente/{{ $api['id'] }}" method="GET">
+                                                                <button class="dropdown-item" type="input">Visualizar</button>
+                                                            </form>
                                                             <form action="edit/{{$api['id']}}" method="POST">
                                                                 @csrf
                                                                 <button class="dropdown-item" type="input">Atualizar</button>
@@ -50,13 +53,12 @@
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button class="dropdown-item" type="input">Excluir</button>
-
                                                             </form>
+
                                                         </ul>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        </a>
                                     @endforeach
                                 </tbody>
                             </table>
