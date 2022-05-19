@@ -23,19 +23,6 @@ class ClienteController extends Controller
         return view('clientes.cliente', ['apiArray' => $apiArray]);
     }
 
-    public function teste()
-    {
-        $api = Http::get('http://localhost:8000/api/clientes/1');
-        $apiArray = $api->json();
-        //dd($apiArray);
-        return view('clientes.clienteid', ['apiArray' => $apiArray]);
-    }
-    public function todos()
-    { //RETORNA TODOS OS CLIENTES SEUS DADOS DE CADASTRO E ENDERECO
-        //return $this->cliente->with('endereco')->paginate();
-        return $this->response;
-    }
-
     public function create()
     {
         return view('clientes.create');
@@ -89,5 +76,11 @@ class ClienteController extends Controller
             "estado" => $request->estado
         ]);
         return redirect('/clientes');
+    }
+
+    public function show($id){
+        $api = Http::get('http://127.0.0.1:8000/api/clientes/' . $id);
+        $api->json();
+        return view('clientes.show',[ 'api' => $api, 'id' => $id]);
     }
 }
