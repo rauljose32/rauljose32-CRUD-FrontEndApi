@@ -42,8 +42,8 @@ Route::get('produtos', [App\Http\Controllers\ProdutoController::class, 'consumir
 Route::get('produto', [App\Http\Controllers\ProdutoController::class, 'create'])->name('create'); //Redirect para Page de Create
 Route::post('produto', [App\Http\Controllers\ProdutoController::class, 'store'])->name('store'); //Create
 Route::delete('produto/{id}', [App\Http\Controllers\ProdutoController::class, 'destroy'])->name('destroy'); //Delete
-Route::get('produto/{id}', [App\Http\Controllers\ProdutoController::class, 'edit'])->name('edit'); //
-Route::put('produto/{id}', [App\Http\Controllers\ProdutoController::class, 'update'])->name('update'); //Update
+Route::get('edit/{id}', [App\Http\Controllers\ProdutoController::class, 'edit'])->name('edit'); //
+Route::put('update/{id}', [App\Http\Controllers\ProdutoController::class, 'update'])->name('update'); //Update
 //<-Actions Produto
 
 

@@ -1,5 +1,4 @@
-@extends('layouts.app', ['activePage' => 'produtos', 'title' => 'Produtos',
-'navName' => 'Produtos', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'produtos', 'title' => 'Produtos', 'navName' => 'Produtos', 'activeButton' => 'laravel'])
 
 @section('content')
     <div class="content">
@@ -41,7 +40,7 @@
                                                             <i class="nc-icon nc-preferences-circle-rotate"></i></a>
                                                         <ul class="dropdown-menu">
 
-                                                            <form action="/produto/{{ $api['id'] }}" method="get">
+                                                            <form action="edit/{{ $api['id'] }}" method="get">
                                                                 <button class="dropdown-item"
                                                                     type="input">Atualizar</button>
                                                             </form>

@@ -48,15 +48,14 @@ class ProdutoController extends Controller
 
     public function edit($id)
     {
-        $api = Http::get('http://127.0.0.1:8000/api/produto/' . $id);
+        $api = Http::get('http://127.0.0.1:8000/api/produtos');
         $apiArray = $api->json();
-        //dd($apiArray);
-        return view('produtos.edit', ['apiArray' => $apiArray]);
+        return view('produtos.edit', ['apiArray' => $apiArray, 'id' => $id]);
     }
 
     public function update(Request $request, $id)
     {
-        Http::put('http://127.0.0.1:8000/api/clientes/' . $id, [
+        Http::put('http://127.0.0.1:8000/api/produto/' . $id, [
             "descricao" => $request->descricao,
             "material" => $request->material,
             "unidade" => $request->unidade,
