@@ -10,7 +10,7 @@
                     @foreach ($apiArray['data'] as $api)
                         @if ($api['id'] == $id)
                             {{-- sim {{$api['id']}} {{$id}} --}}
-                            <form action="/update/{{$id}}" method="POST">
+                            <form action="/updat/{{$id}}" method="POST">
 
                                 @csrf
                                 @method('PUT')
