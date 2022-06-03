@@ -36,7 +36,8 @@ Route::get('edit/{id}', [App\Http\Controllers\ProdutoController::class, 'edit'])
 Route::put('update/{id}', [App\Http\Controllers\ProdutoController::class, 'update'])->name('update'); //Update
 //<-Actions Produto
 
-
+//Actions Orcamento->
+Route::get('orcamentos', [App\Http\Controllers\OrcamentoController::class, 'tela'])->name('tela');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);

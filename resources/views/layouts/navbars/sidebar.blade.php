@@ -60,7 +60,7 @@ Tip 2: you can also add an image using data-image tag
                 </a>
             </li>
             <li class="nav-item @if ($activePage == 'orcamentos') active @endif">
-                <a class="nav-link" href="{{ route('page.index', 'rotaOrcamentos') }}">
+                <a class="nav-link" href="{{ route('page.index', 'orcamentos') }}">
                     <i class="nc-icon nc-notes"></i>
                     <p>{{ __('Orçamentos') }}</p>
                 </a>
