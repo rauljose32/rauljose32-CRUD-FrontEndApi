@@ -17,14 +17,6 @@ Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 
-// CLIENTES
-// Route::get('/', function () {
-//     $api = Http::get('http://localhost:8000/api/clientes');
-//     $apiArray = $api->json();
-//     //dd($apiArray['data']);
-//     return view('cliente.cliente', ['apiArray' => $apiArray]);
-// });
-
 //Actions Cliente->
 Route::get('clientes', [App\Http\Controllers\ClienteController::class, 'consumir'])->name('consumir'); //EXEMPLO DE API PARA CONSUMIR
 Route::get('cliente', [App\Http\Controllers\ClienteController::class, 'create'])->name('create'); //Redirect para Page de Create
@@ -32,7 +24,7 @@ Route::post('cliente', [App\Http\Controllers\ClienteController::class, 'store'])
 Route::delete('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('destroy'); //Delete
 Route::get('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'show'])->name('show'); //Delete
 Route::post('edit/{id}', [App\Http\Controllers\ClienteController::class, 'edit'])->name('edit'); //Edit que leva ao Update
-Route::put('update/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update'); //Update
+Route::put('updat/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update'); //Update
 //<-Actions Cliente
 
 //Actions Produto->
@@ -44,7 +36,8 @@ Route::get('edit/{id}', [App\Http\Controllers\ProdutoController::class, 'edit'])
 Route::put('update/{id}', [App\Http\Controllers\ProdutoController::class, 'update'])->name('update'); //Update
 //<-Actions Produto
 
-
+//Actions Orcamento->
+Route::get('orcamentos', [App\Http\Controllers\OrcamentoController::class, 'tela'])->name('tela');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
