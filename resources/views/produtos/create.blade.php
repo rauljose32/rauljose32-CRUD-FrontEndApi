@@ -1,12 +1,11 @@
-@extends('layouts.app', ['activePage' => 'produtos', 'title' => 'Produtos',
-'navName' => 'Produtos', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'produtos', 'title' => 'Produtos', 'navName' => 'Produtos', 'activeButton' => 'laravel'])
 
 @section('content')
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Criação do Cliente</h3>
+                    <h3>Criação do Produto</h3>
                     <form action="/produto" method="POST">
 
                         @csrf
