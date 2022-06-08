@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Http;
 class OrcamentoController extends Controller
 {
     public function consumir()
-    { //RETORNA TODOS OS PRODUTOS
+    { //RETORNA TODOS OS ORCAMENTOS
         $api = Http::get('http://127.0.0.1:8000/api/orcamentos');
         $apiArray = $api->json();
+        //dd($apiArray);
         return view('orcamentos.orcamento', ['apiArray' => $apiArray]);
     }
     public function create()
@@ -27,13 +28,16 @@ class OrcamentoController extends Controller
         //dd($request);
 
         Http::post('http://127.0.0.1:8000/api/orcamento', [
-            "id_cliente" => $request->id_cliente,
+            "cliente_id" => $request->cliente_id,
             "data" => $request->data,
             "situacao" => $request->situacao,
             "quantidade[]" => $request->quantidade,
             "id_produto[]" => $request->id_produto
         ]);
 
-        return view("orcamentos.orcamento");
+        $api = Http::get('http://127.0.0.1:8000/api/orcamentos');
+        $apiArray = $api->json();
+
+        return view('orcamentos.orcamento', ['apiArray' => $apiArray]);
     }
 }

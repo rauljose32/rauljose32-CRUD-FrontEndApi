@@ -12,7 +12,7 @@
 
                         <div class="form-group">
                             <label>Cliente do Orçamento</label>
-                            <select class="form-control" name="id_cliente" id="id_cliente">
+                            <select class="form-control" name="cliente_id" id="cliente_id">
                                 @foreach ($clientesArray['data'] as $c)
                                     <option value="{{ $c['id'] }}">{{ $c['nome'] }}</option>
                                 @endforeach
