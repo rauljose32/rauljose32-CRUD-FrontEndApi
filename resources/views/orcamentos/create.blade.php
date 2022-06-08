@@ -40,8 +40,8 @@
                                     <th>Descrição</th>
                                     <th>Material</th>
                                     <th>Valor</th>
-                                    <th>Quantidade</th>
                                     <th>Adicionar</th>
+                                    <th>Quantidade</th>
                                 </thead>
                                 <tbody>
 
@@ -51,18 +51,19 @@
                                                 <td>{{ $produto['id'] }}</td>
                                                 <td>{{ $produto['descricao'] }}</td>
                                                 <td>{{ $produto['material'] }}</td>
-                                                <td>{{ $produto['valor'] }}</td>
-                                                <td><input class="form-control" type="number" name="quantidade[]"
-                                                        id="quantidade[]"></td>
+                                                <td class="valorproduto">{{ $produto['valor'] }}</td>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="id_produto[]" name="id_produto[]"
-                                                                value="{{ $produto['id'] }}">
+                                                            <input class="form-check-input ativar-quantidade"
+                                                                type="checkbox" data-id="{{ $produto['id'] }}">
                                                             <span class="form-check-sign"></span>
                                                         </label>
                                                     </div>
+                                                </td>
+                                                <td><input data-id="{{ $produto['id'] }}"
+                                                        name="produtos[{{ $produto['id'] }}]" type="number"
+                                                        class="quantidade-produto form-control" disabled>
                                                 </td>
                                             </tr>
                                         </a>

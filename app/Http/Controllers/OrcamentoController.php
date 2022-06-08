@@ -25,19 +25,17 @@ class OrcamentoController extends Controller
 
     public function store(Request $request)
     {
+
         dd($request);
+        $valorTotal = 10;
 
         Http::post('http://127.0.0.1:8000/api/orcamento', [
             "cliente_id" => $request->cliente_id,
             "data" => $request->data,
+            "valortotal" => $valorTotal,
             "situacao" => $request->situacao,
-            "id_produto[]" => $request->id_produto,
-            "quantidade[]" => $request->quantidade
+            "produtos" => $request->produtos
         ]);
-
-        $api = Http::get('http://127.0.0.1:8000/api/orcamentos');
-        $apiArray = $api->json();
-
-        return view('orcamentos.orcamento', ['apiArray' => $apiArray]);
+        return redirect("/orcamentos");
     }
 }
