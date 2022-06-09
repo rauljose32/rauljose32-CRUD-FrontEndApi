@@ -29,11 +29,13 @@ class OrcamentoController extends Controller
         //$todosProdutos = $api->json();
         //$produtos = $request->produtos;
         //dd($produtos, $todosProdutos);
+        $valor = 5;
 
 
         Http::post('http://127.0.0.1:8000/api/orcamento', [
             "cliente_id" => $request->cliente_id,
             "data" => $request->data,
+            "valortotal" => $valor,
             "situacao" => $request->situacao,
             "produtos" => $request->produtos
         ]);
