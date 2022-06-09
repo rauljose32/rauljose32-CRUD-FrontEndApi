@@ -38,11 +38,10 @@
                                                                 <ul class="dropdown-menu">
 
                                                                     <form action="/orcamento/{{ $api['id'] }}"
-                                                                        method="get">
+                                                                        method="GET">
                                                                         <button class="dropdown-item"
                                                                             type="input">Visualizar</button>
                                                                     </form>
-
                                                                     <form action="/produto/{{ $api['id'] }}"
                                                                         method="POST">
                                                                         @csrf

@@ -51,7 +51,7 @@
                                                 <td>{{ $produto['id'] }}</td>
                                                 <td>{{ $produto['descricao'] }}</td>
                                                 <td>{{ $produto['material'] }}</td>
-                                                <td class="valorproduto">{{ $produto['valor'] }}</td>
+                                                <td>{{ $produto['valor'] }}</td>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">

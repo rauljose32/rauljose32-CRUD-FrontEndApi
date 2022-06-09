@@ -40,6 +40,8 @@ Route::put('update/{id}', [App\Http\Controllers\ProdutoController::class, 'updat
 Route::get('orcamentos', [App\Http\Controllers\OrcamentoController::class, 'consumir'])->name('consumir'); //EXEMPLO DE API PARA CONSUMIR
 Route::get('orcamento', [App\Http\Controllers\OrcamentoController::class, 'create'])->name('create'); //Redirect para Page de Create
 Route::post('orcamento', [App\Http\Controllers\OrcamentoController::class, 'store'])->name('store'); //Create
+Route::get('orcamento/{id}', [App\Http\Controllers\OrcamentoController::class, 'show'])->name('show'); //Mostrar Orcamento
+
 //<-Actions Orcamento
 
 Route::group(['middleware' => 'auth'], function () {
