@@ -14,10 +14,22 @@ class ClienteController extends Controller
         $this->middleware('auth');
         //$this->response = Http::get('http://localhost:8000/api/clientes');
     }
-    public function consumir()
+    public function consumir(Request $request)
     { //RETORNA TODOS OS CLIENTES
         $api = Http::get('http://localhost:8000/api/clientes');
         $apiArray = $api->json();
+
+        if($request->has('cliente_id')){
+            $id = $request->cliente_id;
+            //$api->where('cliente_id', (int)$id);
+            for($i = 0; $i <= count($apiArray['data']); $i++){
+                dd('sim');
+                dd('s');
+            }
+            //dd(count($apiArray['data']));
+
+            //return view('clientes.cliente', ['apiArray' => $apiArray, 'id' => $id]);
+        }
         return view('clientes.cliente', ['apiArray' => $apiArray]);
     }
 

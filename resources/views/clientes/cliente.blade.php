@@ -7,11 +7,57 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-plain table-plain-bg">
-                        <div class="card-header ">
+                        <div class="col-md-6">
+                            <div class="card-header ">
                             {{-- <h4 class="card-title">Ctdentes</h4> --}}
                             <form action="/cliente">{{-- METODO DO CONTROLLER --}}
                                 <button class="btn btn-primary btn-round" type="submit">Adicionar</button>
                             </form>
+                            </div>
+                        </div>
+                            {{----}}
+                            <div class="col-6">
+                            <form action="/clientes" method="GET">
+                                <div class="imobSelect">
+                                    <select name="cliente_id" id="cliente">
+                                        <option value=""></option>
+                                        @foreach ($apiArray['data'] as $api)
+                                            <option value="{{$api['id']}}">{{$api['nome']}}</option>
+                                        @endforeach
+                                    </select>
+                                    <button type="submit" class="btn">Enviar</button>
+                                </div>
+                            </form>
+                            <input type="text" list="cars" class="teste"/>
+                            <datalist id="cars" >
+                                @foreach ($apiArray['data'] as $api)
+                                    <option>{{$api['nome']}}</option>
+                                @endforeach
+                            </datalist>
+                        </div>
+                            <style>
+                                .imobSelect select {
+                                    width: 300px;
+                                    color: #474747;
+                                    padding: 10px 7px 7px 7px;
+                                    font-size: 14px;
+                                    border: 1px solid #cbcbcb;
+                                    border-radius: 5px;
+                                    }
+                                    .teste{
+                                        width: 300px;
+                                        color: #474747;
+                                    padding: 10px 7px 7px 7px;
+                                    font-size: 14px;
+                                    border: 1px solid #cbcbcb;
+                                    border-radius: 5px;
+                                    }
+                                    .imobSelect option {
+                                        height: 50px;
+                                        border: 1px solid #cbcbcb;
+                                        padding: 50px;
+                                    }
+                            </style>
                         </div>
                         <div class="card-body table-full-width table-responsive">
                             <table class="table table-hover">

@@ -51,6 +51,17 @@
                                 </tbody>
                             </table>
                         </div>
+                        <h4>Orçamentos</h4>
+                        <div class="card-body table-full-width table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <th>Orcamento</th>
+                                </thead>
+                                <tbody>
+                                    <td>dados</td>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

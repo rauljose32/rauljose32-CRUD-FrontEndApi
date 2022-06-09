@@ -26,7 +26,7 @@ class OrcamentoController extends Controller
     public function store(Request $request)
     {
 
-        dd($request);
+        //dd($request);
         $valorTotal = 10;
 
         Http::post('http://127.0.0.1:8000/api/orcamento', [
