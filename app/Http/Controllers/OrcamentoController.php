@@ -11,7 +11,6 @@ class OrcamentoController extends Controller
     { //RETORNA TODOS OS ORCAMENTOS
         $api = Http::get('http://127.0.0.1:8000/api/orcamentos');
         $apiArray = $api->json();
-        //dd($apiArray);
         return view('orcamentos.orcamento', ['apiArray' => $apiArray]);
     }
     public function create()
@@ -25,17 +24,27 @@ class OrcamentoController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request->produtos);
+        //$api = Http::get('http://127.0.0.1:8000/api/produtos');
+        //$todosProdutos = $api->json();
+        //$produtos = $request->produtos;
+        //dd($produtos, $todosProdutos);
 
-        //dd($request);
-        $valorTotal = 10;
 
         Http::post('http://127.0.0.1:8000/api/orcamento', [
             "cliente_id" => $request->cliente_id,
             "data" => $request->data,
-            "valortotal" => $valorTotal,
             "situacao" => $request->situacao,
             "produtos" => $request->produtos
         ]);
         return redirect("/orcamentos");
+    }
+
+    public function show($id)
+    {
+        $orcamento = Http::get('http://127.0.0.1:8000/api/orcamento/' . $id);
+        $orcamentoJson = $orcamento->json();
+        //dd($orcamentoJson);
+        return view("orcamentos.show", ['orcamentoJson' => $orcamentoJson]);
     }
 }
