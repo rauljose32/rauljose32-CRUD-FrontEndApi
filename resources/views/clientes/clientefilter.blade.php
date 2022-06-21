@@ -21,7 +21,7 @@
                                 <div class="imobSelect">
                                     <select name="key" id="cliente">
                                         <option value="Selecione"></option>
-                                        @foreach ($apiArray['data'] as $api)
+                                        @foreach ($api['data'] as $api)
                                             <option value="{{$api['id']}}">{{$api['nome']}}</option>
                                         @endforeach
                                     </select>
@@ -66,40 +66,37 @@
                                     <th>Ações</th>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td>{{ $apifilter[0]['id'] }}</td>
+                                        <td>{{ $apifilter[0]['nome'] }}</td>
+                                        <td>{{ $apifilter[0]['cpf'] }}</td>
+                                        <td>{{ $apifilter[0]['telefone'] }}</td>
+                                        <td>{{ $apifilter[0]['email'] }}</td>
+                                        <td>{{ $apifilter[0]['endereco']['cidade'] }}</td>
+                                        <td>{{ $apifilter[0]['endereco']['estado'] }}</td>
+                                        <td>
+                                            <div class="col-md-1 dropdown">
+                                                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="nc-icon nc-preferences-circle-rotate"></i></a>
+                                                <ul class="dropdown-menu">
+                                                    <form action="/cliente/{{ $apifilter[0]['id'] }}" method="GET">
+                                                        <button class="dropdown-item" type="input">Visualizar</button>
+                                                    </form>
+                                                    <form action="edit/{{$apifilter[0]['id']}}" method="POST">
+                                                        @csrf
+                                                        <button class="dropdown-item" type="input">Atualizar</button>
+                                                    </form>
 
-                                    @foreach ($apiArray['data'] as $api)
-                                            <tr>
-                                                <td>{{ $api['id'] }}</td>
-                                                <td>{{ $api['nome'] }}</td>
-                                                <td>{{ $api['cpf'] }}</td>
-                                                <td>{{ $api['telefone'] }}</td>
-                                                <td>{{ $api['email'] }}</td>
-                                                <td>{{ $api['endereco']['cidade'] }}</td>
-                                                <td>{{ $api['endereco']['estado'] }}</td>
-                                                <td>
-                                                    <div class="col-md-1 dropdown">
-                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                                            <i class="nc-icon nc-preferences-circle-rotate"></i></a>
-                                                        <ul class="dropdown-menu">
-                                                            <form action="/cliente/{{ $api['id'] }}" method="GET">
-                                                                <button class="dropdown-item" type="input">Visualizar</button>
-                                                            </form>
-                                                            <form action="edit/{{$api['id']}}" method="POST">
-                                                                @csrf
-                                                                <button class="dropdown-item" type="input">Atualizar</button>
-                                                            </form>
+                                                    <form action="/cliente/{{ $apifilter[0]['id'] }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="dropdown-item" type="input">Excluir</button>
+                                                    </form>
 
-                                                            <form action="/cliente/{{ $api['id'] }}" method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button class="dropdown-item" type="input">Excluir</button>
-                                                            </form>
-
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

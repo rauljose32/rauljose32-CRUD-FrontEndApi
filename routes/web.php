@@ -25,6 +25,7 @@ Route::delete('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'd
 Route::get('cliente/{id}', [App\Http\Controllers\ClienteController::class, 'show'])->name('show'); //Delete
 Route::post('edit/{id}', [App\Http\Controllers\ClienteController::class, 'edit'])->name('edit'); //Edit que leva ao Update
 Route::put('updat/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('update'); //Update
+Route::get('clientefilter', [App\Http\Controllers\ClienteController::class, 'consumir'])->name('consumir');
 //<-Actions Cliente
 
 //Actions Produto->

@@ -19,16 +19,12 @@ class ClienteController extends Controller
         $api = Http::get('http://localhost:8000/api/clientes');
         $apiArray = $api->json();
 
-        if($request->has('cliente_id')){
-            $id = $request->cliente_id;
-            //$api->where('cliente_id', (int)$id);
-            for($i = 0; $i <= count($apiArray['data']); $i++){
-                dd('sim');
-                dd('s');
-            }
-            //dd(count($apiArray['data']));
+        if($request->has('key')){
+            $id = $request->key;
 
-            //return view('clientes.cliente', ['apiArray' => $apiArray, 'id' => $id]);
+            $apifilter = Http::get('http://localhost:8000/api/clientes?key=' . $id);
+            $apifilter->json();
+            return view('clientes.clientefilter', ['apifilter' => $apifilter, 'api' => $apiArray]);
         }
         return view('clientes.cliente', ['apiArray' => $apiArray]);
     }
@@ -91,6 +87,8 @@ class ClienteController extends Controller
     public function show($id){
         $api = Http::get('http://127.0.0.1:8000/api/clientes/' . $id);
         $api->json();
-        return view('clientes.show',[ 'api' => $api, 'id' => $id]);
+        $orcamento = Http::get('http://127.0.0.1:8000/api/orcamentos');
+        $orcamento->json();
+        return view('clientes.show',[ 'api' => $api, 'id' => $id,'orcamento' => $orcamento]);
     }
 }

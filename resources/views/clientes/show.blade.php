@@ -55,10 +55,16 @@
                         <div class="card-body table-full-width table-responsive">
                             <table class="table table-hover">
                                 <thead>
-                                    <th>Orcamento</th>
+                                    <th>Data</th>
+                                    <th>Situação</th>
+                                    <th>Total</th>
                                 </thead>
                                 <tbody>
-                                    <td>dados</td>
+                                    <td>{{$orcamento['data'][0]['data']}}</td>
+                                    <td>{{$orcamento['data'][0]['situacao']}}</td>
+                                    <td>{{$orcamento['data'][0]['valortotal']}}</td>
+                                    {{-- @dd($orcamento['data'][0]); --}}
+                                    <td>{{$orcamento['data'][0]['cliente']['nome']}}</td>
                                 </tbody>
                             </table>
                         </div>
