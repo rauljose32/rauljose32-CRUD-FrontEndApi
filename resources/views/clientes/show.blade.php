@@ -54,19 +54,33 @@
                         <h4>Orçamentos</h4>
                         <div class="card-body table-full-width table-responsive">
                             <table class="table table-hover">
-                                <thead>
-                                    <th>Data</th>
-                                    <th>Situação</th>
-                                    <th>Total</th>
-                                </thead>
-                                <tbody>
-                                    <td>{{$orcamento['data'][0]['data']}}</td>
-                                    <td>{{$orcamento['data'][0]['situacao']}}</td>
-                                    <td>{{$orcamento['data'][0]['valortotal']}}</td>
-                                    {{-- @dd($orcamento['data'][0]); --}}
-                                    <td>{{$orcamento['data'][0]['cliente']['nome']}}</td>
-                                </tbody>
+
+                                @for ($i = 0; $i < count($orcamento['data']); $i++ )
+                                    {{-- @echo( {{$orcamento['data'][$i]['cliente']['id']}} ); --}}
+                                    @if ($api[0]['id'] == $orcamento['data'][$i]['cliente']['id'])
+                                            <thead>
+                                                <th>Data</th>
+                                                <th>Situação</th>
+                                                <th>Total</th>
+                                                <th>Cliente</th>
+                                            </thead>
+                                            <tbody>
+                                                <td>{{date('d/m/Y', strtotime($orcamento['data'][$i]['data']))}}</td>
+                                                <td>{{$orcamento['data'][$i]['situacao']}}</td>
+                                                <td>{{$orcamento['data'][$i]['valortotal']}}</td>
+                                                <td>{{$orcamento['data'][$i]['cliente']['nome']}}</td>
+                                                {{-- @dd($orcamento['data'][$i]);
+                                                <td>{{$orcamento['data'][$i]['produtos_do_orcamento'][1]['descricao']}}</td> --}}
+                                            </tbody>
+                                    {{-- @elseif ($api[0]['id'] != $orcamento['data'][$i]['cliente']['id'])
+                                        <p style='display:none;'>Não possui Orçamentos Cadastrados</p> --}}
+                                    @endif
+
+                                @endfor
                             </table>
+                            <form action="/orcamento">{{-- METODO DO CONTROLLER --}}
+                                <button class="btn btn-primary btn-round" type="submit">Adicionar Orçamento</button>
+                            </form>
                         </div>
                     </div>
                 </div>

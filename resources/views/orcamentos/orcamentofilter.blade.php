@@ -21,10 +21,6 @@
                                         <option value="1">1 - Ativo</option>
                                         <option value="2">2 - Demonstrativo</option>
                                         <option value="3">3 - Inativo</option>
-
-                                        @foreach ($apiArray['data'] as $api)
-                                            {{-- <option value="{{$api['id']}}">{{$api['situacao']}}</option> --}}
-                                        @endforeach
                                     </select>
                                     <button type="submit" class="btn">Enviar</button>
                                 </div>
@@ -66,10 +62,16 @@
                                             <th>Ações</th>
                                         </thead>
                                         <tbody>
-                                            {{-- @dd($apiArray['data'][0]['produtos_do_orcamento'][0]['pivot']);
-                                            @dd($apiArray);
-                                            @dd($apiArray['data'][0]['produtos_do_orcamento'][0]['valor']); --}}
-                                            @foreach ($apiArray['data'] as $api)
+                                            {{-- @dd($apifilter[1]['cliente']['nome']); --}}
+                                            {{-- @dd($apiArray['data']); --}}
+                                            {{-- @for ($i = 0; $i < count($apiArray['data']); $i++ )
+                                                @if ($apifilter[0]['situacao'] == $apiArray['data'][$i]['situacao'])
+                                                    <td>{{ $apifilter[$i]['cliente']['nome'] }}</td>
+                                                    {{ 'sim' }}
+                                                @endif
+                                            @endfor --}}
+
+                                            {{-- @foreach ($apiArray['data'] as $api)
                                                 <a href="#">
                                                     <tr>
                                                         <td>{{ $api['id'] }}</td>
@@ -108,7 +110,7 @@
                                                         </td>
                                                     </tr>
                                                 </a>
-                                            @endforeach
+                                            @endforeach --}}
                                         </tbody>
                                     </table>
                                 </div>

@@ -16,11 +16,11 @@
                             </div>
                         </div>
                             {{----}}
-                            <div class="col-6">
+                        <div class="col-6">
                             <form action="/clientes" method="GET">
                                 <div class="imobSelect">
                                     <select name="key" id="cliente">
-                                        <option value="Selecione"></option>
+                                        <option value="Selecione">Selecione</option>
                                         @foreach ($apiArray['data'] as $api)
                                             <option value="{{$api['id']}}">{{$api['nome']}}</option>
                                         @endforeach

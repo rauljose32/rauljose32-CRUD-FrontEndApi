@@ -13,6 +13,7 @@
                         <div class="form-group">
                             <label>Cliente do Orçamento</label>
                             <select class="form-control" name="cliente_id" id="cliente_id">
+                                <option value="Selecione">Selecione</option>
                                 @foreach ($clientesArray['data'] as $c)
                                     <option value="{{ $c['id'] }}">{{ $c['nome'] }}</option>
                                 @endforeach
@@ -21,15 +22,15 @@
 
                         <div class="form-group">
                             <label>Data do Orçamento</label>
-                            <input class="form-control" type="date" id="data" name="data">
+                            <input class="form-control col-md-2" type="date" id="data" name="data">
                         </div>
 
                         <div class="form-group">
                             <label>Situação do Orçamento</label>
                             <select class="form-control" name="situacao" id="situacao">
-                                <option value="Ativo">Ativo</option>
-                                <option value="Inativo">Inativo</option>
-                                <option value="Demonstrativo">Demonstrativo</option>
+                                <option value="1">1 - Ativo</option>
+                                <option value="2">2 - Demonstrativo</option>
+                                <option value="3">3 - Inativo</option>
                             </select>
                         </div>
 
